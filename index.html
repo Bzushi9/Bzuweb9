@@ -7,8 +7,8 @@
     <style>
         /* Estilo general de la página */
         body {
-            background-color: #FFFFFF; /* Fondo gris medio */
-            color: #212121; /* Color del texto en blanco */
+            background-color: #FFFFFF; /* Fondo blanco */
+            color: #212121; /* Color del texto negro */
             font-family: Arial, sans-serif; /* Fuente de ejemplo */
             margin: 0;
             padding: 20px;
@@ -18,6 +18,35 @@
         /* Estilo de los encabezados */
         h1, h2 {
             color: #FFC107; /* Amarillo brillante */
+        }
+
+        /* Estilo del menú */
+        nav {
+            background-color: #FF5722; /* Naranja oscuro */
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF; /* Blanco */
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #FFC107; /* Amarillo brillante al pasar el cursor */
         }
 
         /* Estilo de los enlaces */
@@ -59,6 +88,14 @@
 <body>
     <h1>Subir y Descargar APK</h1>
     
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#fnaf">Descargar FnaF's</a></li>
+            <li><a href="#psych">Descargar Psych Engine</a></li>
+        </ul>
+    </nav>
+
     <!-- Sección para subir archivo APK -->
     <h2>Subir Archivo APK</h2>
     <form action="tu_servidor.php" method="post" enctype="multipart/form-data">
@@ -68,8 +105,8 @@
         <button type="submit">Subir Archivo</button>
     </form>
 
-    <!-- Sección para enlaces de descarga -->
-    <h2>Descargar FnaF's</h2>
+    <!-- Sección para enlaces de descarga de FnaF's -->
+    <h2 id="fnaf">Descargar FnaF's</h2>
     <ul>
         <li><a href="https://www.mediafire.com/file/o13jnhxq37ia0d0/five%20nights%20at%20freddy%20v2.0.5%20-%20espacioapk.com.apk/file" target="_blank">Descargar FnaF 1</a></li>
         <li><a href="https://www.mediafire.com/file/tjccfocxx1lnb65/fnaf%202%20v2.0.5%20-%20espacioapk.com.apk/file" target="_blank">Descargar FnaF 2</a></li>
@@ -80,7 +117,8 @@
         <li><a href="https://www.mediafire.com/file/s356tjgsigv4qo0/ultimate%20custom%20night%20v1.0.6%20-%20espacioapk.com.apk/file" target="_blank">Descargar FnaF Ultimate Custom Night (7)</a></li>
     </ul>
 
-    <h2>Descargar Psych engine</h2>   
+    <!-- Sección para enlaces de descarga de Psych Engine -->
+    <h2 id="psych">Descargar Psych Engine</h2>   
     <ul>    
         <li><a href="https://www.mediafire.com/file/71o7eldgt4g1d74/PsychEngine-OBB.apk/file" target="_blank">Descargar Psych Engine 0.7.3</a></li>
         <!-- Agrega más enlaces según sea necesario -->
