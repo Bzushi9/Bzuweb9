@@ -1,11 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<title>Bzuweb9 official beta! </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir y Descargar APK</title>
 </head>
+<body>
+    <h1>Subir y Descargar APK</h1>
+    
+    <!-- Sección para subir archivo APK -->
+    <h2>Subir Archivo APK</h2>
+    <form action="tu_servidor.php" method="post" enctype="multipart/form-data">
+        <label for="apkFile">Selecciona un archivo APK:</label>
+        <input type="file" id="apkFile" name="apkFile" accept=".apk" required>
+        <br><br>
+        <button type="submit">Subir Archivo</button>
+    </form>
 
-<body> <p>bzuweb official beta! </p>
-<img src="MEMEXD.png"> <p>esto es una web de una comunidad perdida (la mia) aqui abra links de descarga de juegos
-porteados para android</p>
+    <!-- Sección para enlaces de descarga -->
+    <h2>Descargar APK</h2>
+    <ul>
+        <li><a href="https://example.com/apk1.apk" target="_blank">Descargar APK 1</a></li>
+        <li><a href="https://example.com/apk2.apk" target="_blank">Descargar APK 2</a></li>
+        <li><a href="https://example.com/apk3.apk" target="_blank">Descargar APK 3</a></li>
+        <!-- Agrega más enlaces según sea necesario -->
+    </ul>
 </body>
 </html>
 
