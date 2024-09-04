@@ -32,17 +32,19 @@
             padding: 0;
             margin: 0;
             display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
             justify-content: center;
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 5px 10px; /* Ajusta el margen entre elementos */
         }
 
         nav ul li a {
             color: #FFFFFF; /* Blanco */
             text-decoration: none;
             font-size: 18px;
+            display: block; /* Asegura que cada enlace ocupe una línea completa */
         }
 
         nav ul li a:hover {
@@ -82,6 +84,18 @@
 
         button:hover {
             background-color: #E64A19; /* Color al pasar el cursor */
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column; /* Cambia el menú a columna en pantallas pequeñas */
+                align-items: center; /* Centra los elementos de la columna */
+            }
+
+            nav ul li {
+                margin: 10px 0; /* Espacio entre elementos en modo columna */
+            }
         }
     </style>
 </head>
