@@ -18,9 +18,9 @@
         /* Contenedor del botón y el título */
         .header {
             display: flex;
-            flex-direction: column; /* Disposición vertical */
+            justify-content: space-between; /* Botones a los extremos */
             align-items: center;
-            gap: 10px; /* Espacio entre los botones y el título */
+            gap: 20px; /* Espacio entre los botones y el título */
             margin-bottom: 20px;
         }
 
@@ -126,6 +126,11 @@
 
         /* Media query para dispositivos móviles */
         @media (max-width: 600px) {
+            .header {
+                flex-direction: column; /* Disposición vertical en móviles */
+                align-items: center;
+            }
+
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -178,9 +183,9 @@
     <div class="header">
         <!-- Botón para mostrar el menú -->
         <button class="menu-button" onclick="toggleMenu()">Menú</button>
+        <h1>Descargar APK</h1>
         <!-- Botón para mostrar el menú de nube -->
         <button class="cloud-button" onclick="toggleCloudMenu()">Nube</button>
-        <h1>Descargar APK</h1>
     </div>
 
     <!-- Contenido del menú -->
@@ -200,8 +205,8 @@
     <div class="cloud-menu-content" id="cloud-menu">
         <nav>
             <ul>
-                <li><a href="#option1">snake android (pronto)</a></li>
-                <li><a href="#option2">Juegos flash (pronto)</a></li>
+                <li><a href="#option1">Opción 1</a></li>
+                <li><a href="#option2">Opción 2</a></li>
             </ul>
         </nav>
     </div>
@@ -252,4 +257,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
