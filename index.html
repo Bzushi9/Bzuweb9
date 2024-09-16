@@ -20,7 +20,35 @@
             color: #FFC107; /* Amarillo brillante */
         }
 
-        /* Estilo del menú */
+        /* Botón de menú */
+        .menu-button {
+            background-color: #FF5722; /* Naranja oscuro */
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .menu-button:hover {
+            background-color: #E64A19; /* Color al pasar el cursor */
+        }
+
+        /* Estilo del menú oculto */
+        .menu-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .menu-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Estilo del menú de navegación */
         nav {
             background-color: #FF5722; /* Naranja oscuro */
             padding: 15px;
@@ -32,33 +60,23 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+            flex-wrap: wrap;
             justify-content: center;
         }
 
         nav ul li {
-            margin: 5px 10px; /* Ajusta el margen entre elementos */
+            margin: 5px 10px;
         }
 
         nav ul li a {
-            color: #FFFFFF; /* Blanco */
+            color: #FFFFFF;
             text-decoration: none;
             font-size: 18px;
-            display: block; /* Asegura que cada enlace ocupe una línea completa */
+            display: block;
         }
 
         nav ul li a:hover {
-            color: #FFC107; /* Amarillo brillante al pasar el cursor */
-        }
-
-        /* Estilo de los enlaces */
-        a {
-            color: #03A9F4; /* Azul claro */
-            text-decoration: none; /* Quitar subrayado de enlaces */
-        }
-
-        a:hover {
-            color: #FF5722; /* Color al pasar el cursor */
+            color: #FFC107;
         }
 
         /* Estilo del formulario de carga de archivos */
@@ -89,29 +107,34 @@
         /* Media query para dispositivos móviles */
         @media (max-width: 600px) {
             nav ul {
-                flex-direction: column; /* Cambia el menú a columna en pantallas pequeñas */
-                align-items: center; /* Centra los elementos de la columna */
+                flex-direction: column;
+                align-items: center;
             }
 
             nav ul li {
-                margin: 10px 0; /* Espacio entre elementos en modo columna */
+                margin: 10px 0;
             }
         }
     </style>
 </head>
 <body>
     <h1>Descargar APK</h1>
-    
-    <!-- Menú de navegación principal -->
-    <nav>
-        <ul>
-            <li><a href="https://bzushi9.github.io/Bzuweb2/">Descargar FnaF's</a></li>
-            <li><a href="https://bzushi9.github.io/Bzuweb3/">Descargar Friday Night Funkin</a></li>
-            <li><a href="https://www.emulatorgames.net/roms/">Descargar ROM's y Emuladores</a></li>
-            <li><a href="#Mine">Descargar Minecraft Bedrock y java (pronto)</a></li>
-            <li><a href="#chat">Chat (pronto)</a></li>
-        </ul>
-    </nav>
+
+    <!-- Botón para mostrar el menú -->
+    <button class="menu-button" onclick="toggleMenu()">Menú</button>
+
+    <!-- Contenido del menú -->
+    <div class="menu-content" id="menu">
+        <nav>
+            <ul>
+                <li><a href="https://bzushi9.github.io/Bzuweb2/">Descargar FnaF's</a></li>
+                <li><a href="https://bzushi9.github.io/Bzuweb3/">Descargar Friday Night Funkin</a></li>
+                <li><a href="https://www.emulatorgames.net/roms/">Descargar ROM's y Emuladores</a></li>
+                <li><a href="#Mine">Descargar Minecraft Bedrock y Java (pronto)</a></li>
+                <li><a href="#chat">Chat (pronto)</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Sección para subir archivo APK -->
     <h2>Subir Archivo APK</h2>
@@ -123,10 +146,20 @@
     </form>
 
     <!-- Menú de navegación adicional -->
-    <nav>
-        <ul>
-            <li><a href="https://discord.gg/rtpMkRPYxc">Soporte</a></li> 
-        </ul>
-    </nav>
+    <div class="menu-content" id="extra-menu">
+        <nav>
+            <ul>
+                <li><a href="https://discord.gg/rtpMkRPYxc">Soporte</a></li> 
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Script para el comportamiento del menú -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
