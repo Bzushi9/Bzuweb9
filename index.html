@@ -18,9 +18,9 @@
         /* Contenedor del botón y el título */
         .header {
             display: flex;
-            justify-content: flex-start; /* Botón a la izquierda */
+            justify-content: space-between; /* Botones a los extremos */
             align-items: center;
-            gap: 20px; /* Espacio entre el botón y el título */
+            gap: 20px; /* Espacio entre los botones y el título */
             margin-bottom: 20px;
         }
 
@@ -31,7 +31,7 @@
         }
 
         /* Botón de menú */
-        .menu-button {
+        .menu-button, .cloud-button {
             background-color: #FF5722; /* Naranja oscuro */
             color: #FFFFFF;
             border: none;
@@ -41,19 +41,28 @@
             border-radius: 5px;
         }
 
-        .menu-button:hover {
+        .menu-button:hover, .cloud-button:hover {
             background-color: #E64A19; /* Color al pasar el cursor */
         }
 
+        /* Botón de nube */
+        .cloud-button {
+            background-color: #03A9F4; /* Azul claro */
+        }
+
+        .cloud-button:hover {
+            background-color: #0288D1; /* Color al pasar el cursor */
+        }
+
         /* Estilo del menú con animación suave */
-        .menu-content {
+        .menu-content, .cloud-menu-content {
             height: 0;
             opacity: 0;
             overflow: hidden;
             transition: height 0.5s ease, opacity 0.5s ease;
         }
 
-        .menu-content.active {
+        .menu-content.active, .cloud-menu-content.active {
             height: auto; /* Altura automática para mostrar contenido */
             opacity: 1;
             overflow: visible; /* El contenido será visible */
@@ -87,7 +96,7 @@
         }
 
         nav ul li a:hover {
-            color: #FFC107;
+            color: #FFC107; /* Amarillo brillante */
         }
 
         /* Estilo del formulario de carga de archivos */
@@ -118,7 +127,8 @@
         /* Media query para dispositivos móviles */
         @media (max-width: 600px) {
             .header {
-                justify-content: center; /* Centrar en dispositivos móviles */
+                flex-direction: column; /* Disposición vertical en móviles */
+                align-items: center;
             }
 
             nav ul {
@@ -137,6 +147,35 @@
             font-size: 14px;
             color: #757575; /* Gris claro */
         }
+
+        /* Estilo del menú de nube */
+        .cloud-menu-content {
+            position: absolute;
+            top: 60px; /* Ajusta según la altura de tu encabezado */
+            right: 20px; /* Ajusta según el espacio deseado desde el borde derecho */
+            background-color: #03A9F4; /* Azul claro */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .cloud-menu-content nav ul {
+            display: block;
+            text-align: right;
+        }
+
+        .cloud-menu-content nav ul li {
+            margin: 5px 10px;
+        }
+
+        .cloud-menu-content nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: block;
+        }
+
+        .cloud-menu-content nav ul li a:hover {
+            color: #FFC107; /* Amarillo brillante */
+        }
     </style>
 </head>
 <body>
@@ -145,6 +184,8 @@
         <!-- Botón para mostrar el menú -->
         <button class="menu-button" onclick="toggleMenu()">Menú</button>
         <h1>Descargar APK</h1>
+        <!-- Botón para mostrar el menú de nube -->
+        <button class="cloud-button" onclick="toggleCloudMenu()">Nube</button>
     </div>
 
     <!-- Contenido del menú -->
@@ -156,6 +197,16 @@
                 <li><a href="https://www.emulatorgames.net/roms/">Descargar ROM's y Emuladores</a></li>
                 <li><a href="#Mine">Descargar Minecraft Bedrock y Java (pronto)</a></li>
                 <li><a href="#chat">Chat (pronto)</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contenido del menú de nube -->
+    <div class="cloud-menu-content" id="cloud-menu">
+        <nav>
+            <ul>
+                <li><a href="#option1">Opción 1</a></li>
+                <li><a href="#option2">Opción 2</a></li>
             </ul>
         </nav>
     </div>
@@ -194,6 +245,16 @@
             }
             menu.classList.toggle('active');
         }
+
+        function toggleCloudMenu() {
+            const cloudMenu = document.getElementById('cloud-menu');
+            if (cloudMenu.classList.contains('active')) {
+                cloudMenu.style.height = '0';
+            } else {
+                cloudMenu.style.height = cloudMenu.scrollHeight + 'px';
+            }
+            cloudMenu.classList.toggle('active');
+        }
     </script>
 </body>
-</html>
+    </html>
