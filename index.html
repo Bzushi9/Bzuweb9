@@ -36,16 +36,18 @@
             background-color: #E64A19; /* Color al pasar el cursor */
         }
 
-        /* Estilo del menú oculto */
+        /* Estilo del menú con animación suave */
         .menu-content {
-            display: none;
+            height: 0;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            overflow: hidden;
+            transition: height 0.5s ease, opacity 0.5s ease;
         }
 
         .menu-content.active {
-            display: block;
+            height: auto; /* Altura automática para mostrar contenido */
             opacity: 1;
+            overflow: visible; /* El contenido será visible */
         }
 
         /* Estilo del menú de navegación */
@@ -170,8 +172,13 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
+            if (menu.classList.contains('active')) {
+                menu.style.height = '0';
+            } else {
+                menu.style.height = menu.scrollHeight + 'px';
+            }
             menu.classList.toggle('active');
         }
     </script>
 </body>
-    </html>
+</html>
