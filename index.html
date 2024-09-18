@@ -15,12 +15,16 @@
             text-align: center; /* Centrar el texto */
         }
 
-        /* Contenedor del botón y el título */
+        /* Contenedor del título y botones */
         .header {
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor para los botones */
+        .button-container {
             display: flex;
-            justify-content: space-between; /* Botones a los extremos */
-            align-items: center;
-            gap: 20px; /* Espacio entre los botones y el título */
+            justify-content: center; /* Centrar los botones */
+            gap: 10px; /* Espacio entre los botones */
             margin-bottom: 20px;
         }
 
@@ -99,34 +103,9 @@
             color: #FFC107; /* Amarillo brillante */
         }
 
-        /* Estilo del formulario de carga de archivos */
-        form {
-            margin-bottom: 30px;
-        }
-
-        label, button {
-            font-size: 16px;
-        }
-
-        /* Estilo de los botones */
-        button {
-            background-color: #FF5722; /* Naranja oscuro */
-            color: #FFFFFF; /* Texto en blanco */
-            border: none; /* Sin borde */
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-top: 10px;
-            border-radius: 5px; /* Bordes redondeados */
-        }
-
-        button:hover {
-            background-color: #E64A19; /* Color al pasar el cursor */
-        }
-
         /* Media query para dispositivos móviles */
         @media (max-width: 600px) {
-            .header {
+            .button-container {
                 flex-direction: column; /* Disposición vertical en móviles */
                 align-items: center;
             }
@@ -179,12 +158,14 @@
     </style>
 </head>
 <body>
-    <!-- Contenedor del botón de menú y el título -->
+    <!-- Contenedor del título -->
     <div class="header">
-        <!-- Botón para mostrar el menú -->
-        <button class="menu-button" onclick="toggleMenu()">Menú</button>
         <h1>Descargar APK</h1>
-        <!-- Botón para mostrar el menú de nube -->
+    </div>
+
+    <!-- Contenedor de los botones -->
+    <div class="button-container">
+        <button class="menu-button" onclick="toggleMenu()">Menú</button>
         <button class="cloud-button" onclick="toggleCloudMenu()">Nube</button>
     </div>
 
@@ -222,15 +203,6 @@
         <button type="submit">Subir Archivo</button>
     </form>
 
-    <!-- Menú de navegación adicional -->
-    <div class="menu-content" id="extra-menu">
-        <nav>
-            <ul>
-                <li><a href="https://discord.gg/rtpMkRPYxc">Soporte</a></li> 
-            </ul>
-        </nav>
-    </div>
-
     <!-- Pie de página -->
     <footer>
         Derechos reservados a bzushi9 | <a href="https://tusitio.com/privacidad">Política de privacidad</a>
@@ -259,4 +231,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
