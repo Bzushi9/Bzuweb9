@@ -159,6 +159,9 @@
         /* Estilo para la barra de búsqueda */
         .search-container {
             margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .search-container input {
@@ -168,6 +171,19 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -175,9 +191,10 @@
     <div class="header">
         <h1>the cloud web</h1>
 
-        <!-- Barra de búsqueda -->
+        <!-- Barra de búsqueda con botón para Android -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar opciones...">
+            <button class="search-button" onclick="searchForAndroid()">Buscar para Android</button>
         </div>
     </div>
 
@@ -232,21 +249,11 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            if (menu.classList.contains('active')) {
-                menu.style.height = '0';
-            } else {
-                menu.style.height = menu.scrollHeight + 'px';
-            }
             menu.classList.toggle('active');
         }
 
         function toggleCloudMenu() {
             const cloudMenu = document.getElementById('cloud-menu');
-            if (cloudMenu.classList.contains('active')) {
-                cloudMenu.style.height = '0';
-            } else {
-                cloudMenu.style.height = cloudMenu.scrollHeight + 'px';
-            }
             cloudMenu.classList.toggle('active');
         }
 
@@ -258,5 +265,4 @@
             const filter = searchInput.value.toLowerCase();
             const items = menuItems.getElementsByTagName('li');
 
-            for (let i = 0; i < items.length; i++) {
-                const link = items[i].getElementsBy
+            for (
