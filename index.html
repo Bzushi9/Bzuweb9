@@ -5,38 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>the cloud web</title>
     <style>
-        /* Estilo general de la página */
         body {
-            background-color: #FFFFFF; /* Fondo blanco */
-            color: #212121; /* Color del texto negro */
-            font-family: Arial, sans-serif; /* Fuente de ejemplo */
+            background-color: #FFFFFF;
+            color: #212121;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            text-align: center; /* Centrar el texto */
+            text-align: center;
         }
 
-        /* Contenedor del título y botones */
         .header {
             margin-bottom: 20px;
         }
 
-        /* Contenedor para los botones */
         .button-container {
             display: flex;
-            justify-content: center; /* Centrar los botones */
-            gap: 10px; /* Espacio entre los botones */
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
-        /* Estilo de los encabezados */
         h1, h2 {
-            color: #FFC107; /* Amarillo brillante */
+            color: #FFC107;
             margin: 0;
         }
 
-        /* Botón de menú */
         .menu-button, .cloud-button {
-            background-color: #FF5722; /* Naranja oscuro */
+            background-color: #FF5722;
             color: #FFFFFF;
             border: none;
             padding: 10px 20px;
@@ -46,19 +41,17 @@
         }
 
         .menu-button:hover, .cloud-button:hover {
-            background-color: #E64A19; /* Color al pasar el cursor */
+            background-color: #E64A19;
         }
 
-        /* Botón de nube */
         .cloud-button {
-            background-color: #03A9F4; /* Azul claro */
+            background-color: #03A9F4;
         }
 
         .cloud-button:hover {
-            background-color: #0288D1; /* Color al pasar el cursor */
+            background-color: #0288D1;
         }
 
-        /* Estilo del menú con animación suave */
         .menu-content, .cloud-menu-content {
             height: 0;
             opacity: 0;
@@ -67,16 +60,9 @@
         }
 
         .menu-content.active, .cloud-menu-content.active {
-            height: auto; /* Altura automática para mostrar contenido */
+            height: auto;
             opacity: 1;
-            overflow: visible; /* El contenido será visible */
-        }
-
-        /* Estilo del menú de navegación */
-        nav {
-            background-color: #FF5722; /* Naranja oscuro */
-            padding: 15px;
-            margin-bottom: 20px;
+            overflow: visible;
         }
 
         nav ul {
@@ -100,61 +86,42 @@
         }
 
         nav ul li a:hover {
-            color: #FFC107; /* Amarillo brillante */
+            color: #FFC107;
         }
 
-        /* Media query para dispositivos móviles */
-        @media (max-width: 600px) {
-            .button-container {
-                flex-direction: column; /* Disposición vertical en móviles */
-                align-items: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
         }
 
-        /* Estilo para el pie de página */
+        .filter-button {
+            background-color: #03A9F4;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .filter-button:hover {
+            background-color: #0288D1;
+        }
+
         footer {
             margin-top: 50px;
             font-size: 14px;
-            color: #757575; /* Gris claro */
+            color: #757575;
         }
 
-        /* Estilo del menú de nube */
-        .cloud-menu-content {
-            position: absolute;
-            top: 60px; /* Ajusta según la altura de tu encabezado */
-            right: 20px; /* Ajusta según el espacio deseado desde el borde derecho */
-            background-color: #03A9F4; /* Azul claro */
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        #search {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 80%;
+            font-size: 16px;
         }
 
-        .cloud-menu-content nav ul {
-            display: block;
-            text-align: right;
-        }
-
-        .cloud-menu-content nav ul li {
-            margin: 5px 10px;
-        }
-
-        .cloud-menu-content nav ul li a {
-            color: #FFFFFF;
-            text-decoration: none;
-            display: block;
-        }
-
-        .cloud-menu-content nav ul li a:hover {
-            color: #FFC107; /* Amarillo brillante */
-        }
     </style>
 </head>
 <body>
@@ -163,16 +130,21 @@
         <h1>the cloud web</h1>
     </div>
 
-    <!-- Contenedor de los botones -->
-    <div class="button-container">
-        <button class="menu-button" onclick="toggleMenu()">Menú</button>
-        <button class="cloud-button" onclick="toggleCloudMenu()">Nube</button>
+    <!-- Barra de búsqueda -->
+    <input type="text" id="search" oninput="filterLinks()" placeholder="Buscar enlaces...">
+
+    <!-- Botones de filtro -->
+    <div class="filter-buttons">
+        <button class="filter-button" onclick="filterByLetter('A-C')">A-C</button>
+        <button class="filter-button" onclick="filterByLetter('D-H')">D-H</button>
+        <button class="filter-button" onclick="filterByLetter('I-P')">I-P</button>
+        <button class="filter-button" onclick="filterByLetter('Q-Z')">Q-Z</button>
     </div>
 
     <!-- Contenido del menú -->
     <div class="menu-content" id="menu">
         <nav>
-            <ul>
+            <ul id="link-list">
                 <li><a href="https://bzushi9.github.io/Bzuweb2/">Descargar FnaF's</a></li>
                 <li><a href="https://bzushi9.github.io/Bzuweb3/">Descargar Friday Night Funkin</a></li>
                 <li><a href="https://www.emulatorgames.net/roms/">Descargar ROM's y Emuladores</a></li>
@@ -183,34 +155,10 @@
         </nav>
     </div>
 
-    <!-- Contenido del menú de nube -->
-    <div class="cloud-menu-content" id="cloud-menu">
-        <nav>
-            <ul>
-                <li><a href="https://futbol-11.com/">futbol 11 (new)</a></li>
-                <li><a href="https://www.promiedos.com.ar/">promedios (new)</a></li>
-                <li><a href="https://pelotalibre.org/">pelota libre (new)</a></li>
-                <li><a href="https://poki.com/es/flash">juegos flash (new)</a></li>
-                <li><a href="https://www.windy.com/?-35.659,-58.277,7">windy (new)</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Sección para subir archivo APK -->
-    <h2>Subir Archivo APK</h2>
-    <form action="tu_servidor.php" method="post" enctype="multipart/form-data">
-        <label for="apkFile">Selecciona un archivo APK:</label>
-        <input type="file" id="apkFile" name="apkFile" accept=".apk" required>
-        <br><br>
-        <button type="submit">Subir Archivo</button>
-    </form>
-
-    <!-- Pie de página -->
     <footer>
         Derechos reservados a bzushi9 | <a href="https://tusitio.com/privacidad">Política de privacidad</a>
     </footer>
 
-    <!-- Script para el comportamiento del menú -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
@@ -222,15 +170,36 @@
             menu.classList.toggle('active');
         }
 
-        function toggleCloudMenu() {
-            const cloudMenu = document.getElementById('cloud-menu');
-            if (cloudMenu.classList.contains('active')) {
-                cloudMenu.style.height = '0';
-            } else {
-                cloudMenu.style.height = cloudMenu.scrollHeight + 'px';
-            }
-            cloudMenu.classList.toggle('active');
+        function filterLinks() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const links = document.querySelectorAll('#link-list li');
+            links.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    link.style.display = '';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByLetter(range) {
+            const links = document.querySelectorAll('#link-list li');
+            links.forEach(link => {
+                const text = link.textContent.trim().toUpperCase();
+                if (range === 'A-C' && /^[A-C]/.test(text)) {
+                    link.style.display = '';
+                } else if (range === 'D-H' && /^[D-H]/.test(text)) {
+                    link.style.display = '';
+                } else if (range === 'I-P' && /^[I-P]/.test(text)) {
+                    link.style.display = '';
+                } else if (range === 'Q-Z' && /^[Q-Z]/.test(text)) {
+                    link.style.display = '';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
-    </html>
+        </html>
