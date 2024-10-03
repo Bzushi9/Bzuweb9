@@ -3,80 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>the cloud web</title>
+    <title>The Cloud Web</title>
     <style>
         /* Estilo general de la página */
         body {
-            background-color: #FFFFFF; /* Fondo blanco */
-            color: #212121; /* Color del texto negro */
-            font-family: Arial, sans-serif; /* Fuente de ejemplo */
+            background-color: #F5F5F5; /* Fondo gris claro */
+            color: #333; /* Texto en gris oscuro */
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
             margin: 0;
             padding: 20px;
-            text-align: center; /* Centrar el texto */
+            text-align: center;
         }
 
         /* Contenedor del título y botones */
         .header {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo de los encabezados */
+        h1 {
+            color: #FF9800; /* Naranja brillante */
+            margin: 0;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #0288D1; /* Azul claro */
+            margin: 20px 0;
+            font-size: 24px;
         }
 
         /* Contenedor para los botones */
         .button-container {
             display: flex;
-            justify-content: center; /* Centrar los botones */
-            gap: 10px; /* Espacio entre los botones */
-            margin-bottom: 20px;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        /* Estilo de los encabezados */
-        h1, h2 {
-            color: #FFC107; /* Amarillo brillante */
-            margin: 0;
-        }
-
-        /* Botón de menú */
+        /* Estilo de los botones */
         .menu-button, .cloud-button {
             background-color: #FF5722; /* Naranja oscuro */
             color: #FFFFFF;
             border: none;
-            padding: 10px 20px;
-            cursor: pointer;
+            padding: 12px 24px;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .menu-button:hover, .cloud-button:hover {
-            background-color: #E64A19; /* Color al pasar el cursor */
+        .menu-button:hover {
+            background-color: #E64A19; /* Oscurecer el naranja */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Botón de nube */
         .cloud-button {
             background-color: #03A9F4; /* Azul claro */
         }
 
         .cloud-button:hover {
-            background-color: #0288D1; /* Color al pasar el cursor */
+            background-color: #0288D1; /* Azul oscuro */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilo del menú con animación suave */
+        /* Estilo del menú con animación */
         .menu-content, .cloud-menu-content {
             height: 0;
             opacity: 0;
             overflow: hidden;
             transition: height 0.5s ease, opacity 0.5s ease;
+            margin-bottom: 20px;
         }
 
         .menu-content.active, .cloud-menu-content.active {
-            height: auto; /* Altura automática para mostrar contenido */
+            height: auto;
             opacity: 1;
-            overflow: visible; /* El contenido será visible */
         }
 
         /* Estilo del menú de navegación */
         nav {
-            background-color: #FF5722; /* Naranja oscuro */
+            background-color: #FF5722;
             padding: 15px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
@@ -84,39 +96,47 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-        }
-
-        nav ul li {
-            margin: 5px 10px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
             color: #FFFFFF;
             text-decoration: none;
-            font-size: 18px;
-            display: block;
+            font-size: 16px;
         }
 
         nav ul li a:hover {
+            color: #FFC107;
+        }
+
+        /* Estilo para el menú de nube con fondo celeste */
+        .cloud-menu-content nav {
+            background-color: #B3E5FC; /* Fondo celeste */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .cloud-menu-content nav ul li a {
+            color: #0288D1; /* Azul oscuro */
+        }
+
+        .cloud-menu-content nav ul li a:hover {
             color: #FFC107; /* Amarillo brillante */
         }
 
         /* Media query para dispositivos móviles */
         @media (max-width: 600px) {
             .button-container {
-                flex-direction: column; /* Disposición vertical en móviles */
+                flex-direction: column;
                 align-items: center;
             }
 
             nav ul {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
+                gap: 10px;
             }
         }
 
@@ -124,43 +144,23 @@
         footer {
             margin-top: 50px;
             font-size: 14px;
-            color: #757575; /* Gris claro */
+            color: #757575;
         }
 
-        /* Estilo del menú de nube */
-        .cloud-menu-content {
-            position: absolute;
-            top: 60px; /* Ajusta según la altura de tu encabezado */
-            right: 20px; /* Ajusta según el espacio deseado desde el borde derecho */
-            background-color: #03A9F4; /* Azul claro */
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .cloud-menu-content nav ul {
-            display: block;
-            text-align: right;
-        }
-
-        .cloud-menu-content nav ul li {
-            margin: 5px 10px;
-        }
-
-        .cloud-menu-content nav ul li a {
-            color: #FFFFFF;
+        footer a {
+            color: #0288D1;
             text-decoration: none;
-            display: block;
         }
 
-        .cloud-menu-content nav ul li a:hover {
-            color: #FFC107; /* Amarillo brillante */
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <!-- Contenedor del título -->
     <div class="header">
-        <h1>the cloud web</h1>
+        <h1>The Cloud Web</h1>
     </div>
 
     <!-- Contenedor de los botones -->
@@ -176,9 +176,11 @@
                 <li><a href="https://bzushi9.github.io/Bzuweb2/">FnaF's</a></li>
                 <li><a href="https://bzushi9.github.io/Bzuweb3/">Friday Night Funkin</a></li>
                 <li><a href="https://www.emulatorgames.net/roms/">ROM's y Emuladores</a></li>
-                <li><a href="https://bzusha6.github.io/Web-test/"> poppy playtime</a></li>
-                <li><a href="https://www.mediafire.com/file/9nnlk8owi5kdjkb/Angry+Birds+Epic_3.0.27463.4821_apkcombo.com.xapk/file">angry birds Epic (new)</a></li>
-                <li><a href="#Mine"> Minecraft Bedrock y Java (pronto)</a></li>
+                <li><a href="https://bzusha6.github.io/Web-test/">Poppy Playtime</a></li>
+                <li><a href="https://www.mediafire.com/file/9nnlk8owi5kdjkb/Angry+Birds+Epic_3.0.27463.4821_apkcombo.com.xapk/file">Angry Birds Epic</a></li>
+                <li><a href="content://ru.zdevs.zarchiver.external/storage/emulated/0/Download/gta.html">grand theft auto (new)</a></li>
+                <li><a href="#mcj">minecraft java android (new)</a></li>
+                <li><a href="#Mine">Minecraft Bedrock (new)</a></li>
                 <li><a href="#chat">Chat (pronto)</a></li>
             </ul>
         </nav>
@@ -188,13 +190,14 @@
     <div class="cloud-menu-content" id="cloud-menu">
         <nav>
             <ul>
-                <li><a href="https://futbol-11.com/">futbol 11 </a></li>
-                <li><a href="https://www.promiedos.com.ar/">promedios</a></li>
-                <li><a href="https://pelotalibre.org/">pelota libre</a></li>
-                <li><a href="https://poki.com/es/flash">juegos flash</a></li>
-                <li><a href="https://www.windy.com/?-35.659,-58.277,7">windy</a></li>
-                <li><a href="https://lapalabradeldia.com/como-jugar/">wordle (new)</a></li>
-                <li><a href="https://www.boludle.com/">boludle (new)</a></li>
+                <li><a href="https://futbol-11.com/">Fútbol 11</a></li>
+                <li><a href="https://www.promiedos.com.ar/">Promedios</a></li>
+                <li><a href="https://pelotalibre.org/">Pelota Libre</a></li>
+                <li><a href="https://poki.com/es/flash">Juegos Flash</a></li>
+                <li><a href="https://www.windy.com/?-35.659,-58.277,7">Windy</a></li>
+                <li><a href="https://lapalabradeldia.com/como-jugar/">Wordle</a></li>
+                <li><a href="https://www.boludle.com/">Boludle</a></li>
+                <li><a href="#link">un link a mp4 (new)</a></li>
             </ul>
         </nav>
     </div>
@@ -210,7 +213,7 @@
 
     <!-- Pie de página -->
     <footer>
-        Derechos reservados a bzushi9 | <a href="https://tusitio.com/privacidad">Política de privacidad</a>
+        Derechos reservados a Bzushi9 | <a href="https://tusitio.com/privacidad">Política de privacidad</a>
     </footer>
 
     <!-- Script para el comportamiento del menú -->
@@ -236,4 +239,4 @@
         }
     </script>
 </body>
-            </html>
+                        </html>
